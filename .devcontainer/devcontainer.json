@@ -1,0 +1,49 @@
+{
+    "name": "GrudSign Code Development",
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
+    "features": {
+      "ghcr.io/devcontainers/features/aws-cli:1": {},
+      "ghcr.io/devcontainers/features/docker-in-docker:2": {
+        "version": "latest",
+        "enableNonRootDocker": "true",
+        "moby": "true"
+      }
+    },
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "anthropic.claude-code"
+        ]
+      }
+    },
+    "containerEnv": {
+        "ANTHROPIC_PROVIDER": "bedrock",
+        "CLAUDE_CODE_USE_BEDROCK": "1",
+        "AWS_REGION": "us-east-2",
+        "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "20000",
+        "MAX_THINKING_TOKENS": "8096",
+        "ANTHROPIC_MODEL": "us.anthropic.claude-sonnet-4-20250514-v1:0",
+        "ANTHROPIC_SMALL_FAST_MODEL": "us.anthropic.claude-3-5-haiku-20241022-v1:0"
+    },
+    "mounts": [
+      "source=${localEnv:HOME}/.aws,target=/home/node/.aws,type=bind,consistency=cached"
+    ],
+    "forwardPorts": [3000, 8001, 3090],
+    "portsAttributes": {
+      "3000": {
+        "label": "API Server",
+        "onAutoForward": "notify"
+      },
+      "8000": {
+        "label": "DynamoDB Admin",
+        "onAutoForward": "notify"
+      },
+      "3090": {
+        "label": "DynamoDB Local",
+        "onAutoForward": "notify"
+      }
+    },
+    "privileged": true
+  }
