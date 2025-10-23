@@ -1,0 +1,74 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Custom styles */
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* PDF canvas styling */
+.pdf-canvas {
+  @apply border border-gray-300 shadow-sm bg-white;
+}
+
+/* Field styling */
+.field-box {
+  @apply absolute border-2 border-dashed border-blue-500 bg-blue-50 bg-opacity-50;
+  @apply cursor-move select-none;
+}
+
+.field-box.signature {
+  @apply border-green-500 bg-green-50;
+}
+
+.field-box.text {
+  @apply border-blue-500 bg-blue-50;
+}
+
+.field-box.date {
+  @apply border-purple-500 bg-purple-50;
+}
+
+.field-box:hover {
+  @apply bg-opacity-75;
+}
+
+.field-box.selected {
+  @apply border-solid shadow-lg;
+}
+
+/* Toolbar styling */
+.toolbar {
+  @apply bg-white border border-gray-200 shadow-sm rounded-lg p-4;
+}
+
+/* Button variants */
+.btn-primary {
+  @apply bg-primary-600 hover:bg-primary-700 text-white font-medium py-2 px-4 rounded-md transition-colors;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-md transition-colors;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-md transition-colors;
+}
+
+/* Form styling */
+.form-input {
+  @apply block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm;
+  @apply focus:outline-none focus:ring-primary-500 focus:border-primary-500;
+}
+
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply animate-spin h-5 w-5 border-2 border-gray-300 border-t-primary-600 rounded-full;
+}

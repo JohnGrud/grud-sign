@@ -1,0 +1,23 @@
+{
+  "name": "@grud-sign/infra",
+  "version": "1.0.0",
+  "description": "AWS CDK infrastructure for grud-sign",
+  "main": "lib/stack.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk",
+    "deploy": "cdk deploy",
+    "diff": "cdk diff",
+    "synth": "cdk synth"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.115.0",
+    "constructs": "^10.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "aws-cdk": "^2.115.0",
+    "typescript": "^5.3.3"
+  }
+}

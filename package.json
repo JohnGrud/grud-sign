@@ -1,0 +1,24 @@
+{
+  "name": "grud-sign",
+  "version": "1.0.0",
+  "description": "Simple DocuSign-like prototype with LocalStack development",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm -r build && pnpm docker:up && pnpm seed && concurrently -k \"pnpm --filter backend dev\" \"pnpm --filter frontend dev\"",
+    "docker:up": "docker compose -f devops/docker-compose.yml up -d --wait && bash devops/localstack-init.sh",
+    "docker:down": "docker compose -f devops/docker-compose.yml down -v",
+    "seed": "tsx devops/seed.ts",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "clean": "pnpm -r exec rm -rf node_modules dist build .turbo && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "tsx": "^4.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.0.0"
+}
